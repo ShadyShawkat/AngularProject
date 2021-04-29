@@ -51,8 +51,7 @@ export class RegisterComponent implements OnInit {
     this.manageusersService.registerNewUser(this.registerForm.value).subscribe(
       response=>{
         console.log(response.headers.get('x-auth-token'));
-        console.log(response);
-        console.log(response.headers.get('content-length'));
+        localStorage.setItem('x-auth-token',response.headers.get('x-auth-token'))
       }
     )
 
