@@ -49,6 +49,23 @@ export class ManageusersService {
     // this.http.post('http://localhost:1998/api/users', u,{ observe: 'response' }).toPromise().then(response => console.log(response.headers.get('x-auth-token')));
   }
 
+  login(user:IUser)
+  {
+    const u:IUser = {email:user.email, password:user.password};
+    console.log(u);
+
+    /** POST: add a new hero to the database */
+    return this.http.post('http://localhost:1998/api/auth', u,{ observe: 'response' })
+    .pipe(catchError((err)=>{
+      return throwError(err.message || "Internal Server Error Please contact site adminstarator")
+    })
+    )
+
+
+
+    // this.http.post('http://localhost:1998/api/users', u,{ observe: 'response' }).toPromise().then(response => console.log(response.headers.get('x-auth-token')));
+  }
+
 
 
 

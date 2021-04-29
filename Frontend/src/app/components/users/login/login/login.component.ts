@@ -1,54 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { ManageusersService } from 'src/app/services/manageusers.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { matchPassword } from 'src/app/custom-valdiations/matchPassword';
 import { usernamePatternValidation } from 'src/app/custom-valdiations/validatePattern';
+import { ManageusersService } from 'src/app/services/manageusers.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(private manageusersService:ManageusersService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  get name()
-  {
-    return this.registerForm.get('name');
-  }
-
-
+  
   get email()
   {
-    return this.registerForm.get('email');
+    return this.loginForm.get('email');
   }
 
   get password()
   {
-    return this.registerForm.get('password');
+    return this.loginForm.get('password');
   }
 
-  get confirmPassword()
-  {
-    return this.registerForm.get('confirmPassword');
-  }
-  registerForm=this.fb.group({
-    name:['',[Validators.required,Validators.minLength(5)]],
+
+  loginForm=this.fb.group({
     password:['',[Validators.required,Validators.minLength(5)]],
-    confirmPassword:['',[Validators.required]],
     email:['',[Validators.required,usernamePatternValidation(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]],
-  },{validators:[matchPassword]});
+  });
 
 
 
 
   onSubmit()
   {
-    this.manageusersService.registerNewUser(this.registerForm.value).subscribe(
+    this.manageusersService.login(this.loginForm.value).subscribe(
       response=>{
         console.log(response.headers.get('x-auth-token'));
         console.log(response.body);
@@ -56,6 +46,6 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('currentUser',JSON.stringify(response.body))
       }
     )
-
   }
+
 }
