@@ -50,6 +50,7 @@ isEmailAlreadyUsed:boolean = false;
   {
     this.manageusersService.registerNewUser(this.registerForm.value).subscribe(
       response=>{
+      this.isEmailAlreadyUsed=false;
         console.log(typeof response.status,response.status)
         console.log(response.headers.get('x-auth-token'));
         console.log(response.body);
