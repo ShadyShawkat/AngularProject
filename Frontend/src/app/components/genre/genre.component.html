@@ -1,19 +1,21 @@
 <p>genre works!</p>
+<button class="btn btn-primary" routerLink="/genres/create">Add Genre</button>
 <div>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Body</th>
+                <th scope="col">name</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let genre of genres">
+                <td>{{genre._id}}</td>
                 <td>{{genre.name}}</td>
                 <td>
-                    <button></button>
+                    <button class="btn btn-primary" routerLink="/genres/edit/{{genre._id}}">Edit</button>
+                    <button class="btn btn-primary" (click)="DeleteGenre(genre._id)">Delete</button>
                 </td>
             </tr>
         </tbody>
