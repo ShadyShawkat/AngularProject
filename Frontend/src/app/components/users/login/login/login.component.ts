@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { matchPassword } from 'src/app/custom-valdiations/matchPassword';
 import { usernamePatternValidation } from 'src/app/custom-valdiations/validatePattern';
 import { ManageusersService } from 'src/app/services/manageusers.service';
@@ -11,7 +12,7 @@ import { ManageusersService } from 'src/app/services/manageusers.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private manageusersService:ManageusersService,private fb:FormBuilder) { }
+  constructor(private manageusersService:ManageusersService,private fb:FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +35,7 @@ export class LoginComponent implements OnInit {
   });
 
 
-
+invalidEmailOrPassword:boolean = false;
 
   onSubmit()
   {
@@ -44,8 +45,13 @@ export class LoginComponent implements OnInit {
         console.log(response.body);
         localStorage.setItem('x-auth-token',response.headers.get('x-auth-token'))
         localStorage.setItem('currentUser',JSON.stringify(response.body))
+      this.invalidEmailOrPassword = false;
+        this.router.navigate(['/home'])
+
       }
-    )
+    ,err=>{
+      this.invalidEmailOrPassword = true;
+    })
   }
 
 }

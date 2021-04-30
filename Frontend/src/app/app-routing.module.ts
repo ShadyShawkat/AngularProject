@@ -5,11 +5,13 @@ import { RegisterComponent } from './components/users/register/register.componen
 
 import { GenreComponent } from './components/genre/genre.component';
 import { LoginComponent } from './components/users/login/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path:'genres', component: GenreComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
+  {path:'home',component:HomeComponent},
   
 
 ];

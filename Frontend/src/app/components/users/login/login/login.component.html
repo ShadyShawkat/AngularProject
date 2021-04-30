@@ -13,10 +13,15 @@
         <div class="form-group">
             <label>Password :</label>
             <input type="password" name="password" formControlName="password" [class.is-invalid]="password.invalid && password.touched "  class="form-control">
+            <small class="text-danger" *ngIf="password.touched&&password.errors?.required">
+                password is required
+            </small>
+            <small class="text-danger" *ngIf="invalidEmailOrPassword" >
+                Invalid email or password
+            </small>
         </div>
-        <small class="text-danger" *ngIf="password.touched&&password.errors?.required">
-            password is required
-        </small>
+
+
 
 
 
