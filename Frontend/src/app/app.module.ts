@@ -16,14 +16,10 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     RegisterComponent,
     GenreComponent,
-<<<<<<< HEAD
     LoginComponent,
-    HomeComponent
-=======
+    HomeComponent,
     CreateGenreComponent,
     EditComponent,
-    LoginComponent,
->>>>>>> 7a004103f16e92fe49b01807ee7f81f5a1a1613a
   ],
   imports: [
     BrowserModule,
