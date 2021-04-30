@@ -56,10 +56,10 @@ export class ManageusersService {
 
     /** POST: add a new hero to the database */
     return this.http.post('http://localhost:1998/api/auth', u,{ observe: 'response' })
-    .pipe(catchError((err)=>{
-      return throwError(err.message || "Internal Server Error Please contact site adminstarator")
-    })
-    )
+    // .pipe(catchError((err)=>{
+    //   return throwError(err.message || "Internal Server Error Please contact site adminstarator")
+    // })
+    // )
 
 
 

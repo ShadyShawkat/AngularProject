@@ -25,6 +25,8 @@
                 <small class="text-danger" *ngIf="!email.errors?.required && email.errors?.badPattern" >email is not valid</small>
             </div>
         </div>
+        <small class="text-danger" *ngIf="isEmailAlreadyUsed" >email is already used</small>
+
 
         <div class="form-group">
             <label>Password :</label>

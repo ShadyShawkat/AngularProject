@@ -44,18 +44,21 @@ export class RegisterComponent implements OnInit {
   },{validators:[matchPassword]});
 
 
-
+isEmailAlreadyUsed:boolean = false;
 
   onSubmit()
   {
     this.manageusersService.registerNewUser(this.registerForm.value).subscribe(
       response=>{
+        console.log(typeof response.status,response.status)
         console.log(response.headers.get('x-auth-token'));
         console.log(response.body);
         localStorage.setItem('x-auth-token',response.headers.get('x-auth-token'))
         localStorage.setItem('currentUser',JSON.stringify(response.body))
       }
-    )
+    ,err=>{
+      this.isEmailAlreadyUsed=true;
+    })
 
   }
 }
