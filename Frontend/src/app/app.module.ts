@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,10 @@ import { CreateGenreComponent } from './components/genre/create-genre/create-gen
 import { EditComponent } from './components/genre/edit/edit.component';
 import { LoginComponent } from './components/users/login/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
+import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
+import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -20,12 +24,17 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent,
     CreateGenreComponent,
     EditComponent,
+    AddCustomerComponent,
+    CustomerDetailsComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,6 +8,9 @@ import { CreateGenreComponent } from './components/genre/create-genre/create-gen
 import { EditComponent } from './components/genre/edit/edit.component';
 import { LoginComponent } from './components/users/login/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
+import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
 
 const routes: Routes = [
   {path:'genres', component: GenreComponent},
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'home',component:HomeComponent},
   
+  {path: 'customers', component: CustomerListComponent},
+  {path: 'customers/:id', component: CustomerDetailsComponent},
+  {path: 'add-customer', component: AddCustomerComponent}
 
 ];
 

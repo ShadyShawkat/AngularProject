@@ -1,0 +1,89 @@
+<p>add-customer works!</p>
+<div style="width: 400px; margin: auto">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <form [formGroup]="addCustomerForm">
+        <!-- {{ addCustomerForm.value | json }} -->
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            [class.is.invalid]="name?.invalid && (name?.touched || name?.dirty)"
+          />
+          <div>
+            <small
+              class="text-danger"
+              *ngIf="name?.errors?.required && name?.touched"
+            >
+              Username is required.
+            </small>
+            <small
+              class="text-danger"
+              *ngIf="name?.errors?.minlength && name?.touched"
+            >
+              Minimum length is 3 Character.
+            </small>
+            <small class="text-danger" *ngIf="name?.errors?.pattern">
+              Username May be (letter, -, _).
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phone"
+            [class.is.invalid]="phone?.invalid && (phone?.touched || phone?.dirty)"
+          />
+          <div>
+            <small
+              class="text-danger"
+              *ngIf="phone?.errors?.required && phone?.touched"
+            >
+              Phone Number is required.
+            </small>
+            <small class="text-danger" *ngIf="phone?.errors?.pattern">
+              Phone Number Must Start with your Country Code and The Numbers are Between (6-14)
+            </small>
+          </div>
+
+          <button (click)="addNewPhone()" class="btn btn-success m-1">
+            Add Another Phone
+          </button>
+          <div
+            class="form-group"
+            class="row mt-2"
+            formArrayName="alternativePhone"
+            *ngFor="let phone of alternativePhone.controls; let i = index"
+          >
+            <label class="col-3 mt-2">Phone {{ i + 2 }}:</label>
+            <input
+              type="text"
+              class="form-control col-8"
+              [formControlName]="i"
+            />
+            <button
+              (click)="removePhone(i)"
+              class="col-1 close"
+              aria-label="close"
+            >
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+        </div>
+        <button (click)="saveCustomer()" class="btn btn-success">Add</button>
+      </form>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newCustomer()">
+        Add New Customer
+      </button>
+    </div>
+  </div>
+</div>
