@@ -1,0 +1,55 @@
+<p>customer-list works!</p>
+
+<div class="list row">
+    <div class="col-md-7">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by Name"
+          [(ngModel)]="name"
+        />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Customers List</h4>
+      <!-- *ngIf="!searched else showCustomers" -->
+      <ul class="list-group" >
+        <li
+          class="list-group-item"
+          *ngFor="let customer of customers | filter:name let i=index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCustomer(customer, i)"
+        >
+          {{ customer.name }}
+        </li>
+      </ul>
+      
+      
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllCustomers()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentCustomer">
+        <h4>Customer</h4>
+        <div>
+          <label><strong>Name:</strong></label> 
+          {{ currentCustomer.name }}
+        </div>
+        <div>
+          <label><strong>Phone:</strong></label>
+          {{ currentCustomer.phone }}
+        </div>
+  
+        <a class="btn btn-success" routerLink="/customers/{{ currentCustomer._id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentCustomer">
+        <br />
+        <p>Please click on a Customer Name...</p>
+      </div>
+    </div>
+  </div>

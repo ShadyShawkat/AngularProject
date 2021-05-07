@@ -3,6 +3,7 @@ import { ManageusersService } from 'src/app/services/manageusers.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { matchPassword } from 'src/app/custom-valdiations/matchPassword';
 import { usernamePatternValidation } from 'src/app/custom-valdiations/validatePattern';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { usernamePatternValidation } from 'src/app/custom-valdiations/validatePa
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private manageusersService:ManageusersService,private fb:FormBuilder) { }
+  constructor(private manageusersService:ManageusersService,private fb:FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -56,6 +57,7 @@ isEmailAlreadyUsed:boolean = false;
         console.log(response.body);
         localStorage.setItem('x-auth-token',response.headers.get('x-auth-token')?? "")
         localStorage.setItem('currentUser',JSON.stringify(response.body))
+        this.router.navigate(['/home'])
       }
     ,err=>{
       this.isEmailAlreadyUsed=true;

@@ -10,6 +10,10 @@ import { LoginComponent } from './components/users/login/login/login.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { CreateComponent } from './components/movie/create/create.component';
 import { EditComponent as MovieEditComponent } from './components/movie/edit/edit.component';
+import { HomeComponent } from './components/home/home.component';
+import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
+import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
 
 const routes: Routes = [
   {path:'genres', component: GenreComponent},
@@ -20,7 +24,10 @@ const routes: Routes = [
   {path:'movies/edit/:_id',component:MovieEditComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  
+  {path:'home',component:HomeComponent},
+  {path: 'customers', component: CustomerListComponent},
+  {path: 'customers/:id', component: CustomerDetailsComponent},
+  {path: 'add-customer', component: AddCustomerComponent}
 
 ];
 

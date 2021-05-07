@@ -1,0 +1,80 @@
+<p>customer-details works!</p>
+
+<div style="width: 400px; margin: auto">
+  <div *ngIf="currentCustomer" class="edit-form">
+    <h4>Customer</h4>
+    <form [formGroup]="showCustomerDetailsForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="name"
+          [(ngModel)]="currentCustomer.name"
+          [class.is.invalid]="name?.invalid && (name?.touched || name?.dirty)"
+        />
+        <div>
+          <small
+            class="text-danger"
+            *ngIf="name?.errors?.required && name?.touched"
+          >
+            Username is required.
+          </small>
+          <small
+              class="text-danger"
+              *ngIf="name?.errors?.minlength && name?.touched"
+            >
+              Minimum length is 3 Character.
+            </small>
+          <small class="text-danger" *ngIf="name?.errors?.pattern">
+            Username should be (letter, -, _)
+          </small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="phone"
+          [(ngModel)]="currentCustomer.phone"
+          [class.is.invalid]="
+            phone?.invalid && (phone?.touched || phone?.dirty)
+          "
+        />
+        <div>
+          <small
+            class="text-danger"
+            *ngIf="phone?.errors?.required && phone?.touched"
+          >
+            Phone Number is required.
+          </small>
+          <small class="text-danger" *ngIf="phone?.errors?.pattern">
+            Phone Number Must Start with your Country Code and The Numbers are
+            Between (6-14)
+          </small>
+        </div>
+      </div>
+    </form>
+
+    <button class="badge badge-danger mr-2" (click)="deleteCustomer()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateCustomer()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <button class="btn btn-primary" routerLink="/customers">Back</button>
+
+  <div *ngIf="!currentCustomer">
+    <br />
+    <p>Cannot access this Customer...</p>
+  </div>
+</div>
