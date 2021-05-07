@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IMovie } from 'src/app/models/IMovie';
 import { ICustomer } from 'src/app/models/ICustomer';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-addrental',
@@ -13,7 +14,7 @@ import { ICustomer } from 'src/app/models/ICustomer';
 })
 export class AddrentalComponent implements OnInit {
 
-  constructor(private rentalsService:RentalsService,private customersService:CustomersService,private fb:FormBuilder,private router: Router) { }
+  constructor(private rentalsService:RentalsService,private customersService:CustomersService,private movieService:MovieService,private fb:FormBuilder,private router: Router) { }
 
   Movies:IMovie[];
   Customers:ICustomer[];
@@ -46,6 +47,17 @@ errorMessage:string;
       responseError=>
       {
         this.errorMessage=responseError;
+      }
+    )
+
+    this.movieService.GetAllMovies().subscribe(
+      movies =>
+      {
+        this.Movies = movies;
+      },
+      responseError=>
+      {
+        this.errorMessage = responseError;
       }
     )
   }

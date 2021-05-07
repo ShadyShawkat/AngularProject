@@ -7,8 +7,11 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { GenreComponent } from './components/genre/genre.component';
 import { CreateGenreComponent } from './components/genre/create-genre/create-genre.component';
-import { EditComponent } from './components/genre/edit/edit.component';
+import { EditComponent as EditGenreComponent } from './components/genre/edit/edit.component';
 import { LoginComponent } from './components/users/login/login/login.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { CreateComponent } from './components/movie/create/create.component';
+import { EditComponent as EditMovieComponent } from './components/movie/edit/edit.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
 import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
@@ -25,7 +28,11 @@ import { ShowAllRentalsComponent } from './components/rentals/show-all-rentals/s
     LoginComponent,
     HomeComponent,
     CreateGenreComponent,
-    EditComponent,
+    EditGenreComponent,
+    LoginComponent,
+    MovieComponent,
+    CreateComponent,
+    EditMovieComponent,
     AddCustomerComponent,
     CustomerDetailsComponent,
     CustomerListComponent,

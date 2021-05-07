@@ -6,7 +6,7 @@
       <div class="form-group">
         <label >Movie</label>
         <select class="form-control" formControlName="movie" [class.is-invalid]="movie.invalid && movie.touched">
-          <option *ngFor="let movie of Movies">{{movie.title}}</option>
+          <option *ngFor="let movie of Movies" [value]="movie._id">{{movie.title}}</option>
         </select>
       </div>
 

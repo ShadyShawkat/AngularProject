@@ -36,16 +36,6 @@ export class EditComponent implements OnInit {
 
   onSubmit()
   {
-    // let genre:IGenre = {
-    //   _id:this.id,
-    //   name:this.name?.value,
-    // }
-
-    // console.log({
-    //   _id:this.id,
-    //   name:this.name?.value,
-    // });
-    
     this.genreService.PutGenre(this.id, {
       name:this.name?.value,
     }).subscribe();

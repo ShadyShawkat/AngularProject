@@ -16,7 +16,7 @@ export class RentalsService {
 
   addNewRental(newRental:IRental)
   {
-    const u:IRental = {movieId:newRental.movieId,customerId:newRental.customerId};
+    const u = {movieId:newRental.movie,customerId:newRental.customer};
     console.log(u);
 
     /** POST: add a new hero to the database */

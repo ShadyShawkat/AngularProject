@@ -55,7 +55,7 @@ isEmailAlreadyUsed:boolean = false;
         console.log(typeof response.status,response.status)
         console.log(response.headers.get('x-auth-token'));
         console.log(response.body);
-        localStorage.setItem('x-auth-token',response.headers.get('x-auth-token'))
+        localStorage.setItem('x-auth-token',response.headers.get('x-auth-token')?? "")
         localStorage.setItem('currentUser',JSON.stringify(response.body))
         this.router.navigate(['/home'])
       }
