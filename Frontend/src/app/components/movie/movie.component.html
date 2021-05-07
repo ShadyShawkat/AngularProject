@@ -1,0 +1,29 @@
+<p>movie works!</p>
+<button class="btn btn-primary" routerLink="/movies/create">Add Movie</button>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Daily Rental Rate</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td>{{movie._id}}</td>
+                <td>{{movie.title}}</td>
+                <td>{{movie.genre.name}}</td>
+                <td>{{movie.numberInStock}}</td>
+                <td>{{movie.dailyRentalRate}}</td>
+                <td>
+                    <button class="btn btn-primary" routerLink="/movies/edit/{{movie._id}}">Edit</button>
+                    <button class="btn btn-primary" (click)="DeleteMovie(movie._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

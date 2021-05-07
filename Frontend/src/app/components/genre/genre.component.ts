@@ -23,9 +23,9 @@ export class GenreComponent implements OnInit {
   DeleteGenre(_id:string)
   {
     this.genreService.DeleteGenre(_id).subscribe( ()=> {
-      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-      this.router.onSameUrlNavigation = 'reload';
-     this.router.navigate(['/genres']); 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['/genres']); 
     });
   }
 }
