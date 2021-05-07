@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="rentalForm" (ngSubmit)="onSubmit()" >
+        {{rentalForm.value |json}}
+
+
+      <div class="form-group">
+        <label >Movie</label>
+        <select class="form-control" formControlName="movie" [class.is-invalid]="movie.invalid && movie.touched">
+          <option *ngFor="let movie of Movies">{{movie.title}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label >Customer</label>
+        <select class="form-control" formControlName="customer" [class.is-invalid]="customer.invalid && customer.touched">
+          <option *ngFor="let customer of Customers" [value]="customer._id" >{{customer.name}}</option>
+        </select>
+      </div>
+
+    <button type="submit" class="btn btn-primary" value="Submit Form" [disabled]="rentalForm.invalid" >Add Rental</button>
+
+    </form> 
+</div>
+

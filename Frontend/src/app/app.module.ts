@@ -14,6 +14,8 @@ import { AddCustomerComponent } from './components/customers/add-customer/add-cu
 import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
 import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AddrentalComponent } from './components/rentals/add rental/addrental/addrental.component';
+import { ShowAllRentalsComponent } from './components/rentals/show-all-rentals/show-all-rentals.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EditComponent,
     AddCustomerComponent,
     CustomerDetailsComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    AddrentalComponent,
+    ShowAllRentalsComponent
   ],
   imports: [
     BrowserModule,

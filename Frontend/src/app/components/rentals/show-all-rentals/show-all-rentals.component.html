@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Cutomer</th>
+        <th>Movie</th>
+        <th>Date Out</th>
+        <th>Date Returned</th>
+        <th>Rental Fee</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rental of Rentals ">
+        <td>{{rental.customer.name}}</td>
+        <td>{{rental.movie.title}}</td>
+        <td>{{rental.dateOut}}</td>
+        <td>{{rental.dateReturned}}</td>
+        <td>{{rental.rentalFee}}</td>
+        <td><button (click)="return(rental)" class="btn btn-danger">Returned</button></td>
+      </tr>
+    </tbody>
+  </table>

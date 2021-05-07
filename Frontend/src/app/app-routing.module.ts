@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomerListComponent } from './components/customers/customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './components/customers/customer-details/customer-details.component';
 import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
+import { AddrentalComponent } from './components/rentals/add rental/addrental/addrental.component';
+import { ShowAllRentalsComponent } from './components/rentals/show-all-rentals/show-all-rentals.component';
 
 const routes: Routes = [
   {path:'genres', component: GenreComponent},
@@ -22,7 +24,9 @@ const routes: Routes = [
   
   {path: 'customers', component: CustomerListComponent},
   {path: 'customers/:id', component: CustomerDetailsComponent},
-  {path: 'add-customer', component: AddCustomerComponent}
+  {path: 'add-customer', component: AddCustomerComponent},
+  {path: 'rentals/addrental', component: AddrentalComponent},
+  {path: 'rentals/showall', component: ShowAllRentalsComponent}
 
 ];
 
