@@ -16,11 +16,15 @@ export class RentalsService {
 
   addNewRental(newRental:IRental)
   {
+    let headers = new HttpHeaders({
+      'x-auth-token': localStorage.getItem('x-auth-token'),
+      });
+  let options = { headers: headers };
     const u = {movieId:newRental.movie,customerId:newRental.customer};
     console.log(u);
 
     /** POST: add a new hero to the database */
-    return this.http.post('http://localhost:1998/api/rentals', u,{ observe: 'response' })
+    return this.http.post('http://localhost:1998/api/rentals', u,options)
     .pipe(catchError((err)=>{
       return throwError(err.message || "Internal Server Error Please contact site adminstarator")
     })

@@ -67,7 +67,6 @@ errorMessage:string;
   {
     this.rentalsService.addNewRental(this.rentalForm.value).subscribe(
       response=>{
-        console.log(response.body);
         this.router.navigate(['/home'])
       }
     ,err=>{
