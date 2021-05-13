@@ -16,7 +16,7 @@
         <td>{{rental.dateOut}}</td>
         <td>{{rental.dateReturned}}</td>
         <td>{{rental.rentalFee}}</td>
-        <td><button (click)="return(rental)" class="btn btn-danger">Returned</button></td>
+        <td><button *ngIf="rental.rentalFee===null" (click)="return(rental)" class="btn btn-danger">Return</button></td>
       </tr>
     </tbody>
   </table>

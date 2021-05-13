@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IRental } from 'src/app/models/IRental';
 import { RentalsService } from 'src/app/services/rentals.service';
 
@@ -9,7 +10,7 @@ import { RentalsService } from 'src/app/services/rentals.service';
 })
 export class ShowAllRentalsComponent implements OnInit {
 
-  constructor(private rentalsService:RentalsService) { }
+  constructor(private rentalsService:RentalsService,private router: Router) { }
 Rentals:IRental[];
 errorMessage:string;
 return(d:any){
@@ -17,6 +18,8 @@ return(d:any){
   this.rentalsService.return(d).subscribe(
     returned =>
     {
+      this.router.navigate(['/home'])
+
     },
     responseError=>
     {
