@@ -24,7 +24,6 @@ export class AddCustomerComponent implements OnInit {
     name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+(([_ -][a-zA-Z ])?[a-zA-Z]*)*$/)]],
     phone: ['', [Validators.required, Validators.pattern(/^\+(?:[0-9] ?){6,14}[0-9]$/)]],
     isGold: false,
-    alternativePhone: this.fb.array([])
   });
 
   get name() {
@@ -33,10 +32,6 @@ export class AddCustomerComponent implements OnInit {
 
   get phone() {
     return this.addCustomerForm.get('phone');
-  }
-
-  get alternativePhone() {
-    return this.addCustomerForm.get('alternativePhone') as FormArray
   }
 
   saveCustomer(): void {
