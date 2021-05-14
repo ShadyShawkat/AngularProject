@@ -1277,6 +1277,7 @@
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-10T10:34:20.508Z"}
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-10T23:13:50.786Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-10T23:13:50.810Z"}
+<<<<<<< Updated upstream
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-11T00:42:13.115Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-11T00:42:13.136Z"}
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-12T03:32:09.092Z"}
@@ -1287,7 +1288,24 @@
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-12T03:34:39.678Z"}
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-13T10:24:47.980Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-13T10:24:48.004Z"}
+<<<<<<< HEAD
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T11:55:30.088Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T11:55:30.114Z"}
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T13:54:01.429Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T13:54:01.446Z"}
+=======
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-13T11:03:39.490Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-13T11:03:39.518Z"}
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T11:10:03.791Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T11:10:03.822Z"}
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T11:30:18.538Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T11:30:18.576Z"}
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T13:15:08.534Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T13:15:08.563Z"}
+=======
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T11:54:45.507Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T11:54:45.528Z"}
+>>>>>>> Stashed changes
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T13:17:37.223Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T13:17:37.257Z"}
+>>>>>>> 7d614fc7251207bbc097737e81a709d0e40dfd35

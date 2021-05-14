@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ICustomer } from 'src/app/models/ICustomer';
 import { CustomersService } from 'src/app/services/customers.service';
 
@@ -12,7 +13,8 @@ export class AddCustomerComponent implements OnInit {
 
   constructor(
     private customerService: CustomersService, 
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router,
     ) { }
 
   ngOnInit(): void {
@@ -22,7 +24,6 @@ export class AddCustomerComponent implements OnInit {
     name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]+(([_ -][a-zA-Z ])?[a-zA-Z]*)*$/)]],
     phone: ['', [Validators.required, Validators.pattern(/^\+(?:[0-9] ?){6,14}[0-9]$/)]],
     isGold: false,
-    alternativePhone: this.fb.array([])
   });
 
   get name() {
@@ -32,12 +33,6 @@ export class AddCustomerComponent implements OnInit {
   get phone() {
     return this.addCustomerForm.get('phone');
   }
-
-  get alternativePhone() {
-    return this.addCustomerForm.get('alternativePhone') as FormArray
-  }
-
-  submitted = false;
 
   saveCustomer(): void {
     const data = <ICustomer> {
@@ -49,25 +44,10 @@ export class AddCustomerComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.submitted = true;
+          this.router.navigate(['/customers']);
         },
         error => {
           console.log(error);
         });
-  }
-
-  newCustomer(): void {
-    this.submitted = false;
-    this.addCustomerForm.get('name')?.setValue('');
-    this.addCustomerForm.get('phone')?.setValue('');
-    // this.addCustomerForm.markAsUntouched;
-  }
-
-  addNewPhone() {
-    this.alternativePhone.push(this.fb.control(''))
-  }
-
-  removePhone(index: number) {
-    this.alternativePhone.removeAt(index);
   }
 }

@@ -39,7 +39,8 @@ export class CustomersService {
   }
 
   updateCustomer(customerId: string, data: ICustomer): Observable<any> {
-    return this.http.put(`${baseURL}${customerId}`, data, httpOptions).pipe(catchError((err) => {
+    const toSend ={isGold:data.isGold, name:data.name, phone:data.phone}
+    return this.http.put(`${baseURL}${customerId}`, toSend, httpOptions).pipe(catchError((err) => {
       return throwError(err.message || 'Please Try Again');
     }));
   }

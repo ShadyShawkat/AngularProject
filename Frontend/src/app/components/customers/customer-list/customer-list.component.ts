@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ICustomer } from 'src/app/models/ICustomer';
 import { CustomersService } from 'src/app/services/customers.service';
 
@@ -13,13 +14,13 @@ export class CustomerListComponent implements OnInit {
 customers: any;
 currentCustomer: any;
 searchCustomer: any;
-searched = false;
 currentIndex = -1;
 name = '';
 
 constructor(
   private customerService: CustomersService,
-  private fb: FormBuilder
+  private fb: FormBuilder,
+  private router: Router
   ) { }
 
 
@@ -39,41 +40,15 @@ constructor(
         });
   }
 
-  // refreshList(): void {
-  //   this.retrieveCustomers();
-  //   this.currentCustomer = null;
-  //   this.currentIndex = -1;
-  // }
-
-  setActiveCustomer(customer: ICustomer, index: number): void {
-    console.log(customer);
-    
-    this.currentCustomer = customer;
-    this.currentIndex = index;
-  }
-
-  removeAllCustomers(): void {
-    this.customerService.deleteAllCustomers()
+  deleteCustomer(id: string): void {
+    this.customerService.deleteCustomer(id)
       .subscribe(
         response => {
           console.log(response);
-          this.retrieveCustomers();
+          // this.router.navigate(['/customers']);
         },
         error => {
           console.log(error);
         });
   }
-
-  // searchOnCustomerByName(): void {
-  //   this.customerService.findCustomerByName(this.name)
-  //     .subscribe(
-  //       data => {
-  //         this.searchCustomer = data;
-  //         console.log(data);
-  //         this.searched = true;
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
 }
