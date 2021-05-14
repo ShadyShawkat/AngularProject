@@ -75,6 +75,8 @@ export class EditComponent implements OnInit {
       numberInStock: this.numberInStock?.value,
       dailyRentalRate: this.dailyRentalRate?.value,
     }).subscribe();
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
     this.router.navigate(['/movies']);
   }
 }

@@ -1,7 +1,5 @@
-<p>edit works!</p>
 <div class="container">
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-        {{editForm.value |json}}
         <div class="form-group">
             <label>Title</label>
             <input formControlName="title" [class.is-invalid]="title.invalid && title.touched" type="text" class="form-control" />
@@ -21,7 +19,7 @@
 
         <div class="form-group">
             <label>Genre</label>
-            <select formControlName="genreId">
+            <select  class="form-control" formControlName="genreId">
                 <option *ngFor="let genre of genres; let i = index" [value]="genres[i]._id" [selected]="genres[i]._id == genreId.value">
                   {{genres[i].name}}
                 </option>

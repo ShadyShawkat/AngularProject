@@ -1,7 +1,5 @@
-<p>edit works!</p>
 <div class="container">
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-        {{editForm.value |json}}
         <div class="form-group">
             <label>Name</label>
             <input formControlName="name" [class.is-invalid]="name.invalid && name.touched" type="text" class="form-control" />

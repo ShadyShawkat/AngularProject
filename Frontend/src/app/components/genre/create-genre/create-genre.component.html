@@ -1,7 +1,5 @@
-<p>create-genre works!</p>
 <div class="container">
     <form [formGroup]="createGenreForm" (ngSubmit)="onSubmit()">
-        {{createGenreForm.value |json}}
         <div class="form-group">
             <label>Name</label>
             <input formControlName="name" [class.is-invalid]="name.invalid && name.touched" type="text" class="form-control" />

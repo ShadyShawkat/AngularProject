@@ -1,23 +1,24 @@
-<p>genre works!</p>
-<button class="btn btn-primary" routerLink="/genres/create">Add Genre</button>
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">name</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let genre of genres">
-                <td>{{genre._id}}</td>
-                <td>{{genre.name}}</td>
-                <td>
-                    <button class="btn btn-primary" routerLink="/genres/edit/{{genre._id}}">Edit</button>
-                    <button class="btn btn-primary" (click)="DeleteGenre(genre._id)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <button class="btn btn-primary my-3" routerLink="/genres/create">Add Genre</button>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">name</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let genre of genres">
+                    <td>{{genre._id}}</td>
+                    <td>{{genre.name}}</td>
+                    <td>
+                        <button class="btn btn-primary mx-3" routerLink="/genres/edit/{{genre._id}}">Edit</button>
+                        <button class="btn btn-danger mx-3" (click)="DeleteGenre(genre._id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

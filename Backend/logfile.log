@@ -1287,3 +1287,7 @@
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-12T03:34:39.678Z"}
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-13T10:24:47.980Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-13T10:24:48.004Z"}
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T11:55:30.088Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T11:55:30.114Z"}
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T13:54:01.429Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T13:54:01.446Z"}
