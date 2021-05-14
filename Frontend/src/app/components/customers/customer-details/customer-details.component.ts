@@ -13,7 +13,6 @@ import { CustomersService } from 'src/app/services/customers.service';
 export class CustomerDetailsComponent implements OnInit {
 
   currentCustomer: any = null;
-  message = '';
 
   constructor(
     private customerService: CustomersService,
@@ -23,7 +22,6 @@ export class CustomerDetailsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.message = '';
       this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
         this.getCustomer(params.get('id'));      
         })
@@ -61,8 +59,7 @@ export class CustomerDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = 'The Customer was updated successfully!';
-          // this.router.navigate(['/customers']);
+          this.router.navigate(['/customers']);
         },
         error => {
           console.log(error);
@@ -70,16 +67,5 @@ export class CustomerDetailsComponent implements OnInit {
     }
     else console.log('The Username or Phone is Invalid.')
   }
-
-  deleteCustomer(): void {
-    this.customerService.deleteCustomer(this.currentCustomer._id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/customers']);
-        },
-        error => {
-          console.log(error);
-        });
-  }
+ 
 }
