@@ -19,11 +19,11 @@
             Username is required.
           </small>
           <small
-              class="text-danger"
-              *ngIf="name?.errors?.minlength && name?.touched"
-            >
-              Minimum length is 3 Character.
-            </small>
+            class="text-danger"
+            *ngIf="name?.errors?.minlength && name?.touched"
+          >
+            Minimum length is 3 Character.
+          </small>
           <small class="text-danger" *ngIf="name?.errors?.pattern">
             Username should be (letter, -, _)
           </small>
@@ -55,11 +55,7 @@
       </div>
     </form>
 
-    <button
-      type="submit"
-      class="btn btn-success"
-      (click)="updateCustomer()"
-    >
+    <button type="submit" class="btn btn-success" (click)="updateCustomer()">
       Update
     </button>
   </div>

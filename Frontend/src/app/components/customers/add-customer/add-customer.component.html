@@ -35,7 +35,9 @@
             type="text"
             class="form-control"
             formControlName="phone"
-            [class.is.invalid]="phone?.invalid && (phone?.touched || phone?.dirty)"
+            [class.is.invalid]="
+              phone?.invalid && (phone?.touched || phone?.dirty)
+            "
           />
           <div>
             <small
@@ -45,10 +47,10 @@
               Phone Number is required.
             </small>
             <small class="text-danger" *ngIf="phone?.errors?.pattern">
-              Phone Number Must Start with your Country Code and The Numbers are Between (6-14)
+              Phone Number Must Start with your Country Code and The Numbers are
+              Between (6-14)
             </small>
           </div>
-
         </div>
         <button (click)="saveCustomer()" class="btn btn-success">Add</button>
       </form>

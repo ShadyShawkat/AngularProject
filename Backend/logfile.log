@@ -1309,3 +1309,5 @@
 {"level":"info","message":"Listening on 1998","timestamp":"2021-05-14T13:17:37.223Z"}
 {"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-14T13:17:37.257Z"}
 >>>>>>> 7d614fc7251207bbc097737e81a709d0e40dfd35
+{"level":"info","message":"Listening on 1998","timestamp":"2021-05-15T16:03:54.007Z"}
+{"level":"info","message":"Connected to mongodb://localhost:27017/vidly","timestamp":"2021-05-15T16:03:54.074Z"}

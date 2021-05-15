@@ -1,38 +1,84 @@
 <div>
-    <div class="search-bar">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Search by Name"
-          [(ngModel)]="name"
-        />
-      </div>
-    </div>
-
-    <div>
-      <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Phone</td>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr *ngFor="let customer of customers | filter:name let i=index">
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.phone }}</td>
-            <td>
-              <a class="btn btn-success" routerLink="/customers/{{ customer._id }}">
-                Edit
-              </a>
-              <a class="btn btn-danger" href="/customers"  (click)="deleteCustomer(customer._id)">
-                Delete
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="search-bar">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by Name"
+        [(ngModel)]="name"
+      />
     </div>
   </div>
+
+  <div>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Phone</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let customer of customers | filter: name; let i = index">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>
+            <a
+              class="btn btn-success"
+              routerLink="/customers/{{ customer._id }}"
+            >
+              Edit
+            </a>
+            <a
+              class="btn btn-danger"
+              data-toggle="modal"
+              data-target="#deleteCustomer"
+            >
+              Delete
+            </a>
+
+            <div
+              class="modal fade"
+              id="deleteCustomer"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure to delete this customer?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">
+                      No
+                    </button>
+                    <a
+                      class="btn btn-primary"
+                      href="/customers"
+                      (click)="deleteCustomer(customer._id)"
+                      >Yes</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

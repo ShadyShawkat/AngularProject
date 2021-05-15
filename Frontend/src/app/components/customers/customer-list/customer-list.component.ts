@@ -12,9 +12,6 @@ import { CustomersService } from 'src/app/services/customers.service';
 export class CustomerListComponent implements OnInit {
 
 customers: any;
-currentCustomer: any;
-searchCustomer: any;
-currentIndex = -1;
 name = '';
 
 constructor(
